@@ -1,5 +1,6 @@
 baseURL = 'https://blog.mo0.jp/'
 languageCode = 'ja'
+defaultContentLanguage = 'ja'
 hasCJKLanguage = true
 title = '18歳で東京から大阪に移住した独学C言語エンジニアのブログ'
 theme = "PaperMod"
@@ -29,8 +30,7 @@ description = '東京都から大阪府に引っ越してきて基盤を築こ�
         name = "github"
         url = "https://github.com/rmo0"
             
-    DateFormat = "2006-01-02"
-    
+    DateFormat = ":date_long"
     ShowReadingTime = true
     ShowPostNavLinks = true
     ShowBreadCrumbs = true
