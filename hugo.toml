@@ -1,0 +1,50 @@
+baseURL = 'https://blog.mo0.jp/'
+languageCode = 'ja'
+hasCJKLanguage = true
+title = '18歳で東京から大阪に移住した独学C言語エンジニアのブログ'
+theme = "PaperMod"
+description = '東京都から大阪府に引っ越してきて基盤を築こうとしている19歳の日記っぽい技術ブログ'
+
+[params]
+
+    [params.author]
+        name = "R.U"
+    
+    [params.assets]
+        favicon = "images/favicon.png"
+        # apple_touch_icon = "apple-touch-icon.png"
+        # safari_pinned_tab = "safari-pinned-tab.svg"
+    
+    #"regular"（通常）| "home-info"（自己紹介表示）| "profile"（プロフィール中心）
+    # homeInfoMode = "home-info"
+    
+    mainSections = ["page/posts/"]
+
+    [params.homeInfoParams]
+        Title = "R.U 🐲.🐄"
+        Content = "18歳で東京から大阪に移住した独学C言語エンジニア"
+        AlignSocialIconsTo = "left"
+    
+    [[params.socialIcons]]
+        name = "github"
+        url = "https://github.com/rmo0"
+            
+    DateFormat = "2006-01-02"
+    
+    ShowReadingTime = true
+    ShowPostNavLinks = true
+    ShowBreadCrumbs = true
+    ShowCodeCopyButtons = true
+    ShowWordCount = true
+    ShowRssButtonInSectionTermList = true
+    UseHugoToc = true
+
+    [params.cover]
+        hidden = false
+        hiddenInList = false
+    
+    [params.search]
+        Enable = true
+    
+    [params.shareicons]
+        enable = true
