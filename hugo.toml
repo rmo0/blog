@@ -2,9 +2,9 @@ baseURL = 'https://blog.mo0.jp/'
 languageCode = 'ja'
 defaultContentLanguage = 'ja'
 hasCJKLanguage = true
-title = '18歳で東京から大阪に移住した独学C言語エンジニアのブログ'
+title = 'どらも日記'
 theme = "PaperMod"
-description = '東京都から大阪府に引っ越してきて基盤を築こうとしている19歳の日記っぽい技術ブログ'
+description = '東京 → 大阪 19歳の日記っぽい技術ブログ'
 
 [params]
 
@@ -12,7 +12,7 @@ description = '東京都から大阪府に引っ越してきて基盤を築こ�
         name = "R.U"
     
     [params.assets]
-        favicon = "images/favicon.png"
+        favicon = "images/favicon.ico"
         # apple_touch_icon = "apple-touch-icon.png"
         # safari_pinned_tab = "safari-pinned-tab.svg"
     
@@ -33,7 +33,7 @@ description = '東京都から大阪府に引っ越してきて基盤を築こ�
     DateFormat = ":date_long"
     ShowReadingTime = true
     ShowPostNavLinks = true
-    ShowBreadCrumbs = true
+    ShowBreadCruーーbs = true
     ShowCodeCopyButtons = true
     ShowWordCount = true
     ShowRssButtonInSectionTermList = true
