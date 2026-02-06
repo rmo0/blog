@@ -1,8 +1,8 @@
 +++
 date = '2025-12-31T19:10:11+09:00'
 draft = false
-title = 'やっとまともにブログを作れた'
-description = '4年間先延ばしにしていたブログ作り。19歳になってようやくHugoとGitHub Pagesでブログを立ち上げた話。'
+title = 'HugoとGitHub Pagesでブログを立ち上げた手順・感想'
+description = '4年間先延ばしにしていたブログを、HugoとGitHub Pagesで構築した話。静的サイトの作成手順と運用の感想をまとめました。'
 tags = ["ブログ", "Hugo", "GitHub Pages"]
 categories = ["開発"]
 +++

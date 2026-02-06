@@ -1,8 +1,8 @@
 +++
 date = '2026-02-04T22:16:49+09:00'
 draft = false
-title = 'C言語 コマンドライン引数について'
-description = 'main(int argc, char *argv[])'
+title = 'C言語 コマンドライン引数（argc・argv）の使い方と書き方'
+description = 'C言語のmain関数でコマンドライン引数を受け取る方法。argcとargvの意味、サンプルコード付きで解説します。'
 tags = ["C言語", "コマンドライン引数", "プログラミング"]
 categories = ["開発"]
 showToc = true

@@ -1,8 +1,8 @@
 +++
 date = '2026-01-08T23:20:49+09:00'
 draft = false
-title = '始めての面接で緊張した話'
-description = 'Paizaのサービスを使って応募した企業に面接に行ってきました。'
+title = 'Paizaでエンジニア面接を受けた体験談｜未経験・初めての就活'
+description = 'Paizaでエンジニア職に応募し、初めての面接を受けた体験談。独学・未経験での就活の流れと緊張した話をまとめました。'
 tags = ["Paiza", "面接", "プログラミング"]
 categories = ["開発"]
 showToc = true
