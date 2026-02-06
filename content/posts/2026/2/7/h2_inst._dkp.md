@@ -30,13 +30,10 @@ showToc = true
 普通ならデバッガーとかのツールが必要なんですけど、[CTRPluginFramework](https://gitlab.com/thepixellizeross/ctrpluginframework)（通称: CTRPF）を使うと、こういうメモリの閲覧・変更をプラグイン側からわりと簡単に実装できます。  
 で、そのフレームワーク（CTRPF）で書いたコードをビルドするには、devkitProの環境構築が必要ってわけです。
 
-**CTRPF（CTRPluginFramework）の環境構築のやり方**をまとめていきます。OS は Windows 想定です。
-
+環境
 ---
 
 ## 必要なもの
-
-何を用意すればいいか、軽く表にしておきます。
 
 | 項目 | 説明 |
 |------|------|
@@ -49,94 +46,43 @@ showToc = true
 
 ## 手順1: devkitPro を入れる（Windows）
 
-まず devkitPro を入れます。
-
-1. **インストーラを取ってくる**
-   - [devkitPro - Getting Started](https://devkitpro.org/wiki/Getting_Started) から **devkitProUpdater** を落とす  
-   - または [SourceForge - devkitPro](https://sourceforge.net/projects/devkitpro/) から最新の `devkitProUpdater-*.exe` を取る
-
-2. **インストール**
-   - インストーラを実行して、**「Download and Install」** を選ぶ
-   - コンポーネントは **devkitARM** を選んでおけばOK（3DS用。devkitPPC とかは不要なら外していい）
-   - インストール先は **`C:\devkitPro`** にしとくのを推奨
-
-3. **環境変数**
-   - インストーラがだいたい自動で設定してくれる想定
-   - 手動で確認するなら:
-     - `DEVKITPRO` = `C:\devkitPro`
-     - `DEVKITARM` = `C:\devkitPro\devkitARM`
-     - `PATH` に `C:\devkitPro\devkitARM\bin` と `C:\devkitPro\tools\bin` が入ってるか確認
-
-4. **make について**
-   - Windows には標準で `make` がないので、**MSYS2** を入れて `pacman -S make` で make を入れたシェルでビルドするか、devkitPro インストール時に MSYS2 が入ってれば、その MSYS2 のシェルで `make` を叩く形になります。
+- [devkitPro - Getting Started](https://devkitpro.org/wiki/Getting_Started) か [SourceForge - devkitPro](https://sourceforge.net/projects/devkitpro/) から **devkitProUpdater**（`devkitProUpdater-*.exe`）を落とす
+- インストーラを実行して **「Download and Install」** を選ぶ。コンポーネントは **devkitARM** でOK（3DS用。devkitPPC は不要なら外していい）。インストール先は **`C:\devkitPro`** にしとく
+- 環境変数はインストーラが自動で入れてくれる。自分で確認するなら `DEVKITPRO` = `C:\devkitPro`、`DEVKITARM` = `C:\devkitPro\devkitARM`、あと `PATH` に `C:\devkitPro\devkitARM\bin` と `C:\devkitPro\tools\bin` が入ってるか
+- `make` は Windows にないので、**MSYS2** を入れて `pacman -S make` したシェルでビルドする。devkitPro インストールで MSYS2 が入ってれば、そのシェルで `make` 叩けばいい
 
 ---
 
 ## 手順2: libctrpf を入れる
 
-Makefile では `CTRPFLIB ?= $(DEVKITPRO)/libctrpf` を参照してるので、**`C:\devkitPro\libctrpf`** にヘッダとライブラリを置く必要があります。
+Makefile が `CTRPFLIB ?= $(DEVKITPRO)/libctrpf` を参照してるので、**`C:\devkitPro\libctrpf`** にヘッダとライブラリを置く。
 
-### 方法A: プリビルドを使う場合
-
-CTRPluginFramework の **BlankTemplate** とか **リリース** に同梱されてる **libctrpf** を使うやり方が一般的です。
-
-- 入手先の例:
-  - [Nanquitas/CTRPluginFramework-BlankTemplate](https://github.com/Nanquitas/CTRPluginFramework-BlankTemplate) の README や Release
-  - 日本語の解説だと「libctrpf と libctru を MediaFire とかから落とす」って書いてあることもあります
-- 配置の仕方:
-  - 解凍した中に `include` と `lib` があるやつなら、それらを **`C:\devkitPro\libctrpf`** の直下に置いて、
-  - 結果として `C:\devkitPro\libctrpf\include` と `C:\devkitPro\libctrpf\lib` になってればOKです。
-
-### 方法B: プロジェクトの asset/install.sh を使う場合（WSL や Git Bash など）
-
-`asset/install.sh` はこんな感じで使う想定です:
-
-```bash
-# $1 に libctrpf の bzip2 アーカイブのパスを指定
-./asset/install.sh /path/to/libctrpf-xxx.tar.bz2
-```
-
-このスクリプトは **`/opt/devkitpro`** を前提にしてるので、**Windows でやる場合は WSL や Git Bash 上で DEVKITPRO を設定する**か、スクリプト内の `DEVKITPRO` を `C:/devkitPro` に合わせて書き換える必要があります。  
-実行したあと、Windows から見て `C:\devkitPro\libctrpf`（または WSL なら `/opt/devkitpro/libctrpf`）に `include` と `lib` が展開されてるか確認してください。
+[CTRPluginFramework-BlankTemplate](https://github.com/Nanquitas/CTRPluginFramework-BlankTemplate) の Release とか、日本語の解説で「libctrpf を MediaFire から落とす」ってあるやつを取ってくる。解凍して `include` と `lib` があるやつを **`C:\devkitPro\libctrpf`** の直下に置いて、`C:\devkitPro\libctrpf\include` と `C:\devkitPro\libctrpf\lib` になってればOK。
 
 ---
 
 ## 手順3: 3gxtool を入れる
 
-Makefile だとビルドの最後に **3gxtool** で .elf から .3gx を生成するようになってます。
+Makefile がビルドの最後に **3gxtool** で .elf から .3gx を吐くようになってる。`C:\devkitPro\tools\bin\3gxtool.exe` に置いとけば devkitPro の PATH でそのまま使える。Luma3DS とか 3gx 関連のリポジトリに同梱されてることがあるので、`3gxtool.exe` で探す。
 
-- **置き場所**: `C:\devkitPro\tools\bin\3gxtool.exe` に置いとくと、devkitPro の PATH でそのまま使えることが多いです。
-- **入手**:  
-  - Luma3DS とか 3gx 関連のリポジトリに同梱されてることがあります。  
-  - 検索するなら `3gxtool.exe` とか `3gxtool` + `Luma3DS` / `CTRPluginFramework` とかで探すとよいです。
-
-`3gxtool` がないと、リンクまでは成功しても「.3gx の生成」でこけます。
+ないとリンクまでは通っても .3gx の生成でこける。
 
 ---
 
 ## 手順4: ビルドする
 
-1. **環境の確認**
-   - `DEVKITPRO` と `DEVKITARM` が設定されてるシェル（例: MSYS2 の MinGW シェル）を開く。
+`DEVKITPRO` と `DEVKITARM` が通ってるシェル（MSYS2 の MinGW シェルとか）で、プロジェクトのディレクトリに移動して `make`。クリーンからやりたければ `make re`。
 
-2. **プロジェクトでビルド**
-   ```bash
-   cd C:\Users\user\Documents\projects\3gx
-   make
-   ```
-   クリーンビルドしたい場合:
-   ```bash
-   make re
-   ```
+```bash
+cd （プロジェクトのパス）
+make
+```
 
-3. **成果物**
-   - 成功すると、プロジェクト直下に **`.3gx`** ファイル（Makefile の `TARGET` に由来する名前）ができます。
+成功するとプロジェクト直下に **`.3gx`** ができる（Makefile の `TARGET` の名前）。
 
 ---
 
 ## トラブルシューティング
-
-こけたときに見るといいとこを表にしておきます。
 
 | 症状 | 確認すること |
 |------|------------------|
@@ -147,9 +93,9 @@ Makefile だとビルドの最後に **3gxtool** で .elf から .3gx を生成�
 
 ---
 
-## まとめ（やること一覧）
+## まとめ
 
-1. **devkitPro** を `C:\devkitPro` にインストール（devkitARM を選択）。
-2. **libctrpf** の `include` / `lib` を `C:\devkitPro\libctrpf` に配置。
-3. **3gxtool** を `C:\devkitPro\tools\bin\3gxtool.exe` とか PATH の通る場所に配置。
-4. **make** が使えるシェル（MSYS2 推奨）で `make` または `make re` を実行。
+1. devkitPro を `C:\devkitPro` にインストール（devkitARM）
+2. libctrpf の `include` / `lib` を `C:\devkitPro\libctrpf` に置く
+3. 3gxtool を `C:\devkitPro\tools\bin\3gxtool.exe` に置く
+4. MSYS2 とかで `make` か `make re`
