@@ -4,6 +4,7 @@ draft = false
 title = 'C言語 コマンドライン引数（argc・argv）の使い方と書き方'
 description = 'C言語のmain関数でコマンドライン引数を受け取る方法。argcとargvの意味、サンプルコード付きで解説します。'
 tags = ["C言語", "コマンドライン引数", "プログラミング"]
+keywords = ["C言語", "コマンドライン引数", "argc", "argv", "main関数", "プログラミング"]
 categories = ["開発"]
 showToc = true
 +++

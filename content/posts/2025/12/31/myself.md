@@ -4,6 +4,7 @@ draft = false
 title = 'HugoとGitHub Pagesでブログを立ち上げた手順・感想'
 description = '4年間先延ばしにしていたブログを、HugoとGitHub Pagesで構築した話。静的サイトの作成手順と運用の感想をまとめました。'
 tags = ["ブログ", "Hugo", "GitHub Pages"]
+keywords = ["Hugo", "GitHub Pages", "ブログ", "静的サイト", "構築手順"]
 categories = ["開発"]
 +++
 

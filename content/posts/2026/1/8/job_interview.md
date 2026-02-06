@@ -4,6 +4,7 @@ draft = false
 title = 'Paizaでエンジニア面接を受けた体験談｜未経験・初めての就活'
 description = 'Paizaでエンジニア職に応募し、初めての面接を受けた体験談。独学・未経験での就活の流れと緊張した話をまとめました。'
 tags = ["Paiza", "面接", "プログラミング"]
+keywords = ["Paiza", "エンジニア面接", "未経験", "就活", "転職", "プログラミング"]
 categories = ["開発"]
 showToc = true
 +++
