@@ -121,7 +121,7 @@ Makefile だとビルドの最後に **3gxtool** で .elf から .3gx を生成�
 
 2. **プロジェクトでビルド**
    ```bash
-   cd C:\Users\onetw\Documents\github-projects\vc.3gx
+   cd C:\Users\user\Documents\projects\3gx
    make
    ```
    クリーンビルドしたい場合:
